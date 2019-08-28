@@ -9,29 +9,35 @@ console.log('Доход в месяц:', money);
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 console.log('Возмодные расходы:', addExpenses.split(','));
 
+// Депозит в банке (да / нет)
+let deposit = confirm('Есть ли у вас депозит в банке?');
+console.log('Есть ли депозит в банке:', deposit);
+
 // Расход в месяц
-let expenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?');
-let cost1 = +prompt('Во сколько это обойдется?');
-let expenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?');
-let cost2 = +prompt('Во сколько это обойдется?');
-
-// Вычислить доход за месяц, сохранить в переменную budgetMonth и вывести результат в консоль
-let budgetMonth = money - cost1 - cost2;
-
-// Поправить budgetDay учитывая бюджет, а не доход. Вывести в консоль округлив в меньшую сторону
-let budgetDay =  Math.floor(budgetMonth / 30);
+let expenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
+    cost1 = +prompt('Во сколько это обойдется?'),
+    expenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
+    cost2 = +prompt('Во сколько это обойдется?');
 
 // Функция возвращающая сумму всех расходов за месяц
 let getExpensesMonth = function() {
-    return cost1 + cost2;
+    let sum = 0;
+
+    return sum;
 };
 
-let allExpenses = getExpensesMonth(); //Расход
-console.log('Расходы:', allExpenses);
+let expensesAmount = getExpensesMonth(); //Расход
+console.log('Расходы:', expensesAmount);
+
+// Доход за месяц
+let budgetMonth = money - cost1 - cost2;
+
+// Доход за день (округлив в меньшую сторону)
+let budgetDay =  Math.floor(budgetMonth / 30);
 
 // Функция возвращающая накопления за месяц
 let getAccumulatedMonth = function() {
-    return money - allExpenses;
+    return money - expensesAmount;
 };
 
 let capital = getAccumulatedMonth(); // Накопления
@@ -44,13 +50,14 @@ let getTargetMonth = function() {
 
 console.log('Период накопления:', getTargetMonth());
 
-// Функции showTypeof
+// Функции показывающая тип данных
 let showTypeof = function(data) {
     return typeof(data);
 };
 
-console.log('Тип данных ', showTypeof(mission));
-console.log('Тип данных ', showTypeof(money));
+console.log('Переменная money:', showTypeof(money));
+//console.log('Переменная income:', showTypeof(income));
+console.log('Переменная deposit:', showTypeof(deposit));
 
 // Функции getStatusIncome
 let getStatusIncome = function() {
