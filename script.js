@@ -30,7 +30,7 @@ let getAccumulatedMonth = function() {
     return money - allExpenses;
 };
 
-let capital = getAccumulatedMonth(); // Доход
+let capital = getAccumulatedMonth(); // Накопления
 console.log('Накопления:', capital);
 
 // Функция возвращающаяя период достижения цели
